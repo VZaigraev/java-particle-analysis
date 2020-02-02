@@ -31,6 +31,7 @@ public class PreprocessorModuleImpl implements PreprocessorModule {
         img = img.rowRange(0, img.rows() - 60);
         Imgproc.pyrDown(img, img);
         Imgproc.blur(img, img, new Size(3, 3));
+        Imgproc.cvtColor(img, img, Imgproc.COLOR_BGR2GRAY);
         return new Image(img, raw.getInfo());
     }
 }
